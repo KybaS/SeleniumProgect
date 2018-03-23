@@ -1,17 +1,15 @@
 package mytests;
 
 import configure.BaseTest;
+import configure.Configuration;
 import mytests.pagefactory.MenuPage;
-import org.junit.After;
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.concurrent.TimeUnit;
 
 public class MyTest extends BaseTest {
 
-    WebDriver driver = new ChromeDriver();
+    MenuPage menuPage = new MenuPage(driver);
 
     @Test
     public void myTest() {
@@ -19,7 +17,7 @@ public class MyTest extends BaseTest {
         driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
         driver.manage().window().maximize();
 
-        driver.get("http://www.thecheesecakefactory.com/");
+        open("http://www.thecheesecakefactory.com/");
         menuPage.assertTitle("Welcome to The Cheesecake Factory");
         menuPage.assertCopyright("© 2002-" + getCurrentYear() + " TCF Co. LLC. All Rights Reserved.");
 
@@ -31,13 +29,6 @@ public class MyTest extends BaseTest {
         menuPage.assertCheesecakesDescription("The One that Started it All! Our Famous Creamy Cheesecake with a Graham Cracker Crust and Sour Cream Topping.\n" +
                 "Ship this cheesecake almost anywhere in the U.S.\n" +
                 "Food Tags:  sour cream, cream cheese");
-    }
-
-    MenuPage menuPage = new MenuPage(driver);
-
-    @After
-    public void after() {
-        driver.quit();
     }
 
     private static int getCurrentYear() {
