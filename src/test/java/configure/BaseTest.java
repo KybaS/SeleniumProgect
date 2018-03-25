@@ -2,12 +2,12 @@ package configure;
 
 import org.junit.AfterClass;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class BaseTest extends ConciseAPI {
 
-    //public static WebDriver driver = new FirefoxDriver();
-    public static WebDriver driver = new ChromeDriver();
+    public static WebDriver driver = new FirefoxDriver();
+    // public static WebDriver driver = new ChromeDriver();
 
     @Override
     public WebDriver getWebDriver() {

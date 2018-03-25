@@ -1,7 +1,6 @@
 package mytests;
 
 import configure.BaseTest;
-import configure.Configuration;
 import mytests.pagefactory.MenuPage;
 import org.junit.Test;
 
@@ -13,7 +12,6 @@ public class MyTest extends BaseTest {
 
     @Test
     public void myTest() {
-
         driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
         driver.manage().window().maximize();
 

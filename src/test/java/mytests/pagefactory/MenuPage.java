@@ -28,9 +28,6 @@ public class MenuPage extends BasePage {
         driver.findElement(By.xpath("//*[@data-internal='26316']")).click();
     }
 
-    @FindBy(xpath = "//a[@class='head-menu']")
-    public WebElement menu;
-
     public void assertCopyright(String text) {
         WebElement copyright = driver.findElement(By.xpath("//div[@class='copyright']"));
         assertEquals(text, copyright.getText());
@@ -44,6 +41,9 @@ public class MenuPage extends BasePage {
         WebElement description = driver.findElement(By.className("food-menu-item-description"));
         assertEquals(excepted, description.getText());
     }
+
+    @FindBy(xpath = "//a[@class='head-menu']")
+    public WebElement menu;
 
     public MenuPage(WebDriver driver) {
         super(driver);
